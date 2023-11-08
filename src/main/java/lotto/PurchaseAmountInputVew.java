@@ -2,7 +2,7 @@ package lotto;
 
 import camp.nextstep.edu.missionutils.Console;
 
-public class LottoInputView {
+public class PurchaseAmountInputVew {
     public void inputPurchaseAmount() {
         try {
             String amount = Console.readLine();
