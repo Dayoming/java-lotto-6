@@ -3,9 +3,9 @@ package lotto;
 import camp.nextstep.edu.missionutils.Console;
 
 public class PurchaseAmountInputVew {
-    public void inputPurchaseAmount() {
+    public Integer inputPurchaseAmount() {
+        String amount = Console.readLine();
         try {
-            String amount = Console.readLine();
             divideValidation(amount);
             purchaseAmountHasString(amount);
             purchaseAmountHasBlank(amount);
@@ -14,6 +14,7 @@ public class PurchaseAmountInputVew {
             System.out.println(iae.getMessage());
             inputPurchaseAmount();
         }
+        return Integer.parseInt(amount);
     }
 
     public void divideValidation(String amount) {
