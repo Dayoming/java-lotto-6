@@ -31,4 +31,13 @@ public class LottoInputViewTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("[ERROR] 로또 구입 금액에는 공백이 입력될 수 없습니다.");
     }
+
+    @DisplayName("구입 금액이 음수인 경우 예외가 발생한다.")
+    @Test
+    void purchaseAmountHasNegative() {
+        String amount = "-1000";
+        assertThatThrownBy(() -> lottoInputView.purchaseAmountHasNegative(amount))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("[ERROR] 로또 구입 금액에는 음수를 입력할 수 없습니다.");
+    }
 }

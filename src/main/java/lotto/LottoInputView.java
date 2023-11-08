@@ -9,6 +9,7 @@ public class LottoInputView {
             divideValidation(amount);
             purchaseAmountHasString(amount);
             purchaseAmountHasBlank(amount);
+            purchaseAmountHasNegative(amount);
         } catch (IllegalArgumentException iae) {
             System.out.println(iae.getMessage());
             inputPurchaseAmount();
@@ -33,6 +34,13 @@ public class LottoInputView {
     public void purchaseAmountHasBlank(String amount) {
         if (amount.isBlank()) {
             throw new IllegalArgumentException("[ERROR] 로또 구입 금액에는 공백이 입력될 수 없습니다.");
+        }
+    }
+
+    public void purchaseAmountHasNegative(String amount) {
+        Integer purchaseAmount = Integer.parseInt(amount);
+        if (purchaseAmount < 0) {
+            throw new IllegalArgumentException("[ERROR] 로또 구입 금액에는 음수를 입력할 수 없습니다.");
         }
     }
 }
